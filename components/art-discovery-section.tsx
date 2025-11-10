@@ -43,7 +43,7 @@ export function ArtDiscoverySection() {
   }, [])
 
   return (
-    <section className="bg-[#f5f5f0] py-16 relative overflow-hidden">
+    <section className="bg-[#f5f5f0] py-10 sm:py-12 md:py-16 relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         {/* === SLIDER === */}
         <div
@@ -96,9 +96,9 @@ export function ArtDiscoverySection() {
         </div>
 
         {/* === NAVIGATION === */}
-        <div className="flex flex-col items-center mt-10 space-y-4">
+        <div className="flex flex-col items-center mt-6 sm:mt-8 md:mt-10 space-y-3 sm:space-y-4">
           {/* Thanh ngang (dot bar) */}
-          <div className="flex w-full  h-1.5 bg-gray-300/50 opacity-70 rounded-full overflow-hidden">
+          <div className="flex w-full h-1 sm:h-1.5 bg-gray-300/50 opacity-70 rounded-full overflow-hidden">
             {slides.map((_, i) => (
               <button
                 key={i}
@@ -162,7 +162,7 @@ function Slide({
     <div className="min-w-full flex-shrink-0 snap-start">
       <div className="grid lg:grid-cols-2 gap-0 items-center">
         {/* Left */}
-        <div className={`relative h-[350px] sm:h-[400px] bg-gradient-to-br ${bg}`}>
+        <div className={`relative h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-gradient-to-br ${bg}`}>
           <div className="grid grid-cols-2 grid-rows-3 h-full">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="relative overflow-hidden">
@@ -176,26 +176,26 @@ function Slide({
           </div>
 
           {/* Overlay Text */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10">
-            <div className="text-center space-y-2">
-              <h3 className="text-4xl sm:text-5xl font-light tracking-wide">{title1}</h3>
-              <h3 className="text-4xl sm:text-5xl font-light tracking-wide">{title2}</h3>
-              <div className="border-2 border-white inline-block px-4 py-1 mt-2">
-                <span className="text-sm tracking-widest">ART.SY</span>
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-2">
+            <div className="text-center space-y-1 sm:space-y-2">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-wide">{title1}</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-wide">{title2}</h3>
+              <div className="border-2 border-white inline-block px-3 sm:px-4 py-0.5 sm:py-1 mt-1 sm:mt-2">
+                <span className="text-xs sm:text-sm tracking-widest">ART.SY</span>
               </div>
-              <h3 className="text-5xl sm:text-6xl font-light mt-4">{year}</h3>
+              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mt-2 sm:mt-4">{year}</h3>
             </div>
           </div>
         </div>
 
         {/* Right */}
-        <div className="bg-white h-[350px] sm:h-[400px] flex items-center justify-center px-6 sm:px-16">
-          <div className="space-y-6 sm:space-y-8 max-w-lg text-center lg:text-left">
-            <h2 className="text-3xl sm:text-5xl font-light leading-tight text-balance">{heading}</h2>
-            <p className="text-base sm:text-xl text-foreground/60 leading-relaxed">{desc}</p>
+        <div className="bg-white h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-16 py-6 sm:py-8">
+          <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 max-w-lg text-center lg:text-left w-full">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight text-balance">{heading}</h2>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/60 leading-relaxed">{desc}</p>
             <Button
               variant="outline"
-              className="rounded-full border-foreground/30 px-8 sm:px-12 py-4 sm:py-6 text-base bg-transparent hover:bg-foreground/5"
+              className="rounded-full border-foreground/30 w-full sm:w-auto px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 text-sm sm:text-base bg-transparent hover:bg-foreground/5"
             >
               {button}
             </Button>

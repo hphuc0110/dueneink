@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen pt-16 sm:pt-20">
+    <main className="min-h-screen pt-16 sm:pt-12">
       <Header />
       <ClientsSection />
       <ForeverYoungSection />

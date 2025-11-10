@@ -15,7 +15,7 @@ export function Header() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md  border-gray-100 ">
       <nav className="container mx-auto px-4 sm:px-6 py-4 sm:py-5">
         <ul className="flex items-center justify-end gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm">
           {navItems.map((item) => {

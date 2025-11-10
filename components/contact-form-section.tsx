@@ -16,19 +16,19 @@ export function ContactFormSection() {
   }
 
   return (
-    <section className="bg-[#fefdf8] py-12">
-      <div className="container mx-auto px-6">
-        <div className="grid gap-10 lg:grid-cols-2 items-start">
+    <section className="bg-[#fefdf8] py-10 sm:py-12 md:py-16">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="grid gap-8 sm:gap-10 lg:grid-cols-2 items-start">
           {/* Left: Heading */}
           <div className="animate-fade-in-up">
-            <h2 className="text-7xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               See the
               <br />
               difference
             </h2>
-            <p className="mt-4 text-sm text-foreground/70">
+            <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-foreground/70">
               Tell us a bit about your needs, and we'll tailor
-              <br />a demo for you.
+              <br className="hidden sm:block" />a demo for you.
             </p>
           </div>
 
