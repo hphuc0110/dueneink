@@ -3,28 +3,26 @@ import { ClientsSection } from "@/components/clients-section"
 import { ForeverYoungSection } from "@/components/forever-young-section"
 import { EmotionsSection } from "@/components/emotions-section"
 import { TraditionSection } from "@/components/tradition-section"
-import { TransformSection } from "@/components/transform-section"
 import { Footer } from "@/components/footer"
 
 export default function ExperiencePage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen pt-16 sm:pt-20">
       <Header />
       <ClientsSection />
       <ForeverYoungSection />
       <EmotionsSection />
       <TraditionSection />
-      <TransformSection />
       <Footer 
-        imageSrc="/img/7.webp"
+        imageSrc="/img/3_13.webp"
         headingText={
           <>
-            Start your
+            Transform your
             <br />
-            tattoo journey
+            workflow today
           </>
         }
-        buttonText="BOOK APPOINTMENT"
+        buttonText="BOOK A DEMO"
       />
     </main>
   )

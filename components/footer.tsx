@@ -44,7 +44,7 @@ export function Footer({
   ],
 }: FooterProps) {
   return (
-    <footer className="relative h-[600px] w-full overflow-hidden">
+    <footer className="relative min-h-[500px] sm:h-[600px] w-full overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -56,20 +56,19 @@ export function Footer({
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col justify-between px-12 py-12
-                      md:px-12 md:py-12 px-6 py-8">
+      <div className="relative z-10 flex h-full min-h-[500px] sm:h-[600px] flex-col justify-between px-6 py-8 sm:px-12 sm:py-12">
         {/* Main Content */}
         <div className="flex flex-1 items-center justify-between
                         md:flex-row flex-col text-center md:text-left gap-6 md:gap-0">
-          <h2 className="text-5xl md:text-7xl font-light leading-tight text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-light leading-tight text-white">
             {headingText}
           </h2>
           {buttonLink ? (
             <a href={buttonLink}>
               <Button
                 variant="outline"
-                className="rounded-full border-white bg-transparent px-6 py-4 md:px-8 md:py-6 
-                           text-white hover:bg-white hover:text-black transition-colors"
+                className="rounded-full border-white bg-transparent px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 
+                           text-xs sm:text-sm text-white hover:bg-white hover:text-black transition-colors w-full sm:w-auto"
               >
                 {buttonText}
               </Button>
@@ -77,8 +76,8 @@ export function Footer({
           ) : (
             <Button
               variant="outline"
-              className="rounded-full border-white bg-transparent px-6 py-4 md:px-8 md:py-6 
-                         text-white hover:bg-white hover:text-black transition-colors"
+              className="rounded-full border-white bg-transparent px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 
+                         text-xs sm:text-sm text-white hover:bg-white hover:text-black transition-colors w-full sm:w-auto"
             >
               {buttonText}
             </Button>
@@ -86,10 +85,10 @@ export function Footer({
         </div>
 
         {/* Footer Info */}
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-6 md:gap-8 text-sm text-white text-center md:text-left">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm text-white text-center md:text-left mt-6 sm:mt-0">
           <div>
             <h3 className="mb-2 font-medium">Address</h3>
-            <p className="text-white/70">{address}</p>
+            <p className="text-white/70 break-words">{address}</p>
           </div>
 
           <div>
@@ -111,7 +110,7 @@ export function Footer({
 
           <div>
             <h3 className="mb-2 font-medium">Email</h3>
-            <p className="text-white/70">{email}</p>
+            <p className="text-white/70 break-words">{email}</p>
           </div>
         </div>
       </div>
