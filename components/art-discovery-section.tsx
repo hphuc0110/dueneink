@@ -7,9 +7,9 @@ import { useRef, useState, useEffect } from "react"
 export function ArtDiscoverySection() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
-  const slides = [1, 2, 3, 4] // 👉 nếu thêm slide thì tăng mảng này
+  const slides = [1, 2, 3, 4]
 
-  // 👉 Hàm cuộn slide
+  // 👉 Cuộn tới slide chỉ định
   const scrollToIndex = (index: number) => {
     if (!scrollContainerRef.current) return
     const scrollAmount = scrollContainerRef.current.clientWidth * index
@@ -20,6 +20,7 @@ export function ArtDiscoverySection() {
     setCurrentIndex(index)
   }
 
+  // 👉 Chuyển slide trái/phải
   const scroll = (dir: "left" | "right") => {
     const newIndex =
       dir === "left"
@@ -28,29 +29,27 @@ export function ArtDiscoverySection() {
     scrollToIndex(newIndex)
   }
 
-  // 👉 Lắng nghe khi người dùng vuốt / cuộn ngang
+  // 👉 Lắng nghe khi người dùng cuộn bằng tay
   useEffect(() => {
     const container = scrollContainerRef.current
     if (!container) return
-
     const handleScroll = () => {
       const index = Math.round(container.scrollLeft / container.clientWidth)
       setCurrentIndex(index)
     }
-
     container.addEventListener("scroll", handleScroll)
     return () => container.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
-    <section className="bg-[#f5f5f0] py-10 sm:py-12 md:py-16 relative overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className="relative bg-[#f5f5f0] py-8 sm:py-10 md:py-12 lg:py-16 overflow-hidden">
+      <div className="container mx-auto px-2 sm:px-4 md:px-6 relative">
         {/* === SLIDER === */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-0 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar touch-pan-x"
+          className="flex gap-0 overflow-x-auto scroll-smooth snap-x snap-mandatory hide-scrollbar touch-pan-x -mx-2 sm:-mx-4 md:mx-0"
         >
-          {/* --- SLIDE 1 --- */}
+          {/* --- Các Slide --- */}
           <Slide
             bg="from-gray-900 to-gray-800"
             title1="The ARTSY"
@@ -60,73 +59,68 @@ export function ArtDiscoverySection() {
             desc="Meet 10 artists moving culture forward."
             button="Explore Now"
           />
-
-          {/* --- SLIDE 2 --- */}
-            <Slide
-              bg="from-blue-900 to-purple-800"
-              title1="Discover"
-              title2="Emerging"
-              year="Artists"
-              heading="Discover and Buy Art That Moves You"
-              desc="Turn art into a daily habit. Follow artists, explore stories, and get personalized recommendations."
-              button="Discover Now"
-            />
-
-            {/* --- SLIDE 3 --- */}
-            <Slide
-              bg="from-green-900 to-lime-800"
-              title1="Discover"
-              title2="Emerging"
-              year="Artists"
-              heading="Discover and Buy Art That Moves You"
-              desc="Turn art into a daily habit. Follow artists, explore stories, and get personalized recommendations."
-              button="Discover Now"
-            />
-
-            {/* --- SLIDE 4 --- */}
-            <Slide
-              bg="from-red-900 to-orange-800"
-              title1="Discover"
-              title2="Emerging"
-              year="Artists"
-              heading="Discover and Buy Art That Moves You"
-              desc="Turn art into a daily habit. Follow artists, explore stories, and get personalized recommendations."
-              button="Discover Now"
-            />
+          <Slide
+            bg="from-blue-900 to-purple-800"
+            title1="Discover"
+            title2="Emerging"
+            year="Artists"
+            heading="Discover and Buy Art That Moves You"
+             desc="Turn art into a daily habit. Follow artists, personalized recommendations."
+            button="Discover Now"
+          />
+          <Slide
+            bg="from-green-900 to-lime-800"
+            title1="Discover"
+            title2="Emerging"
+            year="Artists"
+            heading="Discover and Buy Art That Moves You"
+            desc="Turn art into a daily habit. Follow artists, personalized recommendations."
+            button="Discover Now"
+          />
+          <Slide
+            bg="from-red-900 to-orange-800"
+            title1="Discover"
+            title2="Emerging"
+            year="Artists"
+            heading="Discover and Buy Art That Moves You"
+            desc="Turn art into a daily habit. Follow artists,personalized recommendations."
+            button="Discover Now"
+          />
         </div>
 
-        {/* === NAVIGATION === */}
-        <div className="flex flex-col items-center mt-6 sm:mt-8 md:mt-10 space-y-3 sm:space-y-4">
-          {/* Thanh ngang (dot bar) */}
-          <div className="flex w-full h-1 sm:h-1.5 bg-gray-300/50 opacity-70 rounded-full overflow-hidden">
+        {/* === Nút mũi tên trái/phải === */}
+        <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4 md:left-6 right-2 sm:right-4 md:right-6 flex items-center justify-between pointer-events-none z-20">
+          <button
+            onClick={() => scroll("left")}
+            className="pointer-events-auto rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 p-2 sm:p-2.5 md:p-3 shadow-md hover:bg-white active:scale-95 transition-all"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            className="pointer-events-auto rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 p-2 sm:p-2.5 md:p-3 shadow-md hover:bg-white active:scale-95 transition-all"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+          </button>
+        </div>
+
+        {/* === Thanh dot bar === */}
+        <div className="flex flex-col items-center mt-4 sm:mt-6 md:mt-8 lg:mt-10">
+          <div className="flex w-full max-w-md h-1 sm:h-1.5 bg-gray-300/50 opacity-70 rounded-full overflow-hidden">
             {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => scrollToIndex(i)}
                 className={`flex-1 transition-all duration-500 ${
-                  i === currentIndex ? "bg-black" : "bg-gray-400/40 hover:bg-gray-500/60"
+                  i === currentIndex
+                    ? "bg-black"
+                    : "bg-gray-400/40 hover:bg-gray-500/60 active:bg-gray-500/80"
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}
-          </div>
-
-          {/* Nút mũi tên — ẩn trên mobile */}
-          <div className="hidden lg:flex justify-center gap-4 mt-4">
-            <button
-              onClick={() => scroll("left")}
-              className="rounded-full border-2 border-foreground/20 p-3 hover:bg-foreground/5 transition-colors"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              className="rounded-full border-2 border-foreground/20 p-3 hover:bg-foreground/5 transition-colors"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
           </div>
         </div>
       </div>
@@ -159,10 +153,14 @@ function Slide({
   button: string
 }) {
   return (
-    <div className="min-w-full flex-shrink-0 snap-start">
-      <div className="grid lg:grid-cols-2 gap-0 items-center">
-        {/* Left */}
-        <div className={`relative h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-gradient-to-br ${bg}`}>
+    <div className="min-w-full flex-shrink-0 snap-start px-2 sm:px-4 md:px-0">
+      {/* --- MOBILE: Stack (ảnh trên, text dưới)
+           --- DESKTOP: Grid 2 cột --- */}
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-0 items-stretch">
+        {/* Left Image Collage */}
+        <div
+          className={`relative h-[240px] sm:h-[280px] md:h-[340px] lg:h-[420px] bg-gradient-to-br ${bg}`}
+        >
           <div className="grid grid-cols-2 grid-rows-3 h-full">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="relative overflow-hidden">
@@ -176,26 +174,36 @@ function Slide({
           </div>
 
           {/* Overlay Text */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-2">
-            <div className="text-center space-y-1 sm:space-y-2">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-wide">{title1}</h3>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-wide">{title2}</h3>
-              <div className="border-2 border-white inline-block px-3 sm:px-4 py-0.5 sm:py-1 mt-1 sm:mt-2">
-                <span className="text-xs sm:text-sm tracking-widest">ART.SY</span>
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-2 sm:px-3 md:px-4">
+            <div className="text-center space-y-0.5 sm:space-y-1 md:space-y-2">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
+                {title1}
+              </h3>
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
+                {title2}
+              </h3>
+              <div className="border-2 border-white inline-block px-2 sm:px-3 py-0.5 mt-0.5 sm:mt-1">
+                <span className="text-[10px] sm:text-xs md:text-sm tracking-widest">ART.SY</span>
               </div>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mt-2 sm:mt-4">{year}</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mt-1 sm:mt-2">
+                {year}
+              </h3>
             </div>
           </div>
         </div>
 
-        {/* Right */}
-        <div className="bg-white h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-16 py-6 sm:py-8">
-          <div className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 max-w-lg text-center lg:text-left w-full">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight text-balance">{heading}</h2>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/60 leading-relaxed">{desc}</p>
+        {/* Right Text Section */}
+        <div className="bg-white flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-16 py-6 sm:py-8 md:py-10 lg:py-12 min-h-[200px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-0">
+          <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6 max-w-lg text-center lg:text-left w-full">
+            <h2 className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-snug sm:leading-tight text-balance">
+              {heading}
+            </h2>
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-foreground/60 leading-relaxed">
+              {desc}
+            </p>
             <Button
               variant="outline"
-              className="rounded-full border-foreground/30 w-full sm:w-auto px-6 sm:px-8 md:px-10 lg:px-12 py-3 sm:py-4 md:py-5 lg:py-6 text-sm sm:text-base bg-transparent hover:bg-foreground/5"
+              className="rounded-full border-foreground/30 w-full sm:w-auto px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 text-xs sm:text-sm md:text-base bg-transparent hover:bg-foreground/5 active:scale-95 transition-all"
             >
               {button}
             </Button>
@@ -205,3 +213,4 @@ function Slide({
     </div>
   )
 }
+
