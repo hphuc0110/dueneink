@@ -10,12 +10,12 @@ export function ForeverYoungSection() {
           <img
             src="/img/3_2.webp"
             alt="Tattoo 1"
-            className="w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover"
+            className="w-full h-[250px] sm:h-[370px] md:h-[470px] object-cover"
           />
           <img
             src="/img/3_5.webp"
             alt="Tattoo 2"
-            className="w-full h-[150px] sm:h-[200px] object-cover"
+            className="w-full h-[200px] sm:h-[260px] object-cover"
           />
         </div>
 
@@ -24,19 +24,19 @@ export function ForeverYoungSection() {
           <img
             src="/img/3_3.webp"
             alt="Tattoo 3"
-            className="w-full h-[150px] sm:h-[200px] object-cover"
+            className="w-full h-[200px] sm:h-[260px] object-cover"
           />
           <img
             src="/img/3_4.webp"
             alt="Tattoo 4"
-            className="w-full h-[200px] sm:h-[300px] md:h-[400px] object-cover"
+            className="w-full h-[250px] sm:h-[370px] md:h-[470px] object-cover"
           />
         </div>
       </div>
 
       {/* Right Content */}
       <div className="flex flex-col justify-center bg-[#f5f5f0] px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 lg:px-20 order-1 lg:order-2">
-        <h2 className="mb-6 sm:mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight text-black">
+        <h2 className="mb-6 sm:mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-black">
           Forever
           <br />
           young

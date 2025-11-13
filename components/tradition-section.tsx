@@ -29,7 +29,7 @@ export function TraditionSection() {
 
       {/* Right Content */}
       <div className="flex flex-col justify-center bg-[#f5f5f0] px-6 py-12 sm:px-8 sm:py-16 md:px-12 md:py-20 lg:px-20 order-1 lg:order-2">
-        <h2 className="mb-6 sm:mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight">Tradition</h2>
+        <h2 className="mb-6 sm:mb-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">Tradition</h2>
         <div className="space-y-3 sm:space-y-4 text-sm sm:text-base leading-relaxed text-gray-700">
           <p>But that doesn't mean we turn away from tradition or from our older clients.</p>
           <p>

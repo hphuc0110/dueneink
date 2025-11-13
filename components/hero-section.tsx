@@ -15,26 +15,25 @@ export function HeroSection() {
 
       {/* Content */}
       <div
-        className="relative z-10 flex h-full flex-col justify-between 
-                   px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-12"
+        className="relative z-10 flex flex-col justify-between 
+                   h-full px-4 py-6 sm:px-6 sm:py-8 md:px-12 md:py-12"
       >
         {/* Main Title */}
-        <div className="flex-1 flex items-center justify-center md:justify-start pt-8 sm:pt-0">
-  <h1
-    className="font-[family-name:var(--font-display)] 
-               text-[3rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[12rem]
-               font-bold leading-none text-white text-center md:text-left
-               uppercase tracking-tight relative overflow-hidden"
-    style={{
-      letterSpacing: "-0.02em",
-    }}
-  >
-    <span className="animate-typewriter inline-block whitespace-nowrap overflow-hidden border-r-2 sm:border-r-4 border-white pr-1 sm:pr-2">
-      DUENE INK
-    </span>
-  </h1>
-</div>
-
+        <div className="flex flex-1 items-center justify-center">
+          <h1
+            className="font-[family-name:var(--font-display)] 
+                       text-[3rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[12rem]
+                       font-bold leading-none text-white text-center
+                       uppercase tracking-tight relative overflow-hidden opacity-0 animate-fade-in"
+            style={{
+              letterSpacing: "-0.02em",
+              animationDelay: "0.2s",
+              animationFillMode: "forwards",
+            }}
+          >
+            <span className="inline-block ">DUENE INK</span>
+          </h1>
+        </div>
 
         {/* Bottom Content */}
         <div
@@ -42,8 +41,8 @@ export function HeroSection() {
                      justify-between gap-4 sm:gap-6 w-full pb-4 sm:pb-0"
         >
           <p
-            className="text-center md:text-left max-w-xs sm:max-w-sm md:max-w-md 
-                       text-xs sm:text-sm leading-relaxed text-white 
+            className="text-center md:text-left max-w-sm sm:max-w-md md:max-w-md 
+                       text-sm sm:text-md leading-relaxed text-white 
                        animate-slide-up"
             style={{ animationDelay: "0.4s" }}
           >

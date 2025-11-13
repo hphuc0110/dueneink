@@ -75,10 +75,23 @@
 }
 
 @theme inline {
-  --font-sans: "Geist", "Geist Fallback";
+  --font-sans: var(--font-sans);
   --font-mono: "Geist Mono", "Geist Mono Fallback";
   /* Adding display font variable for hero text */
-  --font-display: var(--font-display);
+  --font-display: var(--font-sans);
+  /* Increase base font sizes by ~20% */
+  --text-xs: 0.9rem;
+  --text-sm: 1.05rem;
+  --text-base: 1.2rem;
+  --text-lg: 1.35rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 1.8rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 2.7rem;
+  --text-5xl: 3.6rem;
+  --text-6xl: 4.5rem;
+  --text-7xl: 5.4rem;
+  --text-8xl: 7.2rem;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -121,8 +134,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    font-size: 18px; /* Increase base font size from default 16px */
+  }
   body {
     @apply bg-background text-foreground;
+    font-size: 1.2rem; /* Ensure body has larger base font size */
   }
 }
 
