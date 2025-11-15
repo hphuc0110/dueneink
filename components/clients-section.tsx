@@ -1,4 +1,7 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
+import { scrollToContactForm } from "@/lib/scroll-to-contact"
 
 export function ClientsSection() {
   return (
@@ -20,6 +23,7 @@ export function ClientsSection() {
           <p>Because at our studio, art doesn't choose people. People choose to live as art.</p>
         </div>
         <Button
+          onClick={scrollToContactForm}
           variant="outline"
           className="w-full sm:w-fit rounded-full border-black bg-transparent px-6 py-4 sm:px-8 sm:py-6 text-xs sm:text-sm hover:bg-black hover:text-white transition-colors"
         >

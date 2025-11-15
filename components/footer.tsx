@@ -1,4 +1,9 @@
+"use client"
+
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { scrollToContactForm } from "@/lib/scroll-to-contact"
+import { ContactFormDialog } from "@/components/contact-form-dialog"
 
 interface SocialMediaLink {
   name: string
@@ -43,6 +48,17 @@ export function Footer({
     },
   ],
 }: FooterProps) {
+  const [isDialogOpen, setIsDialogOpen] = useState(false)
+
+  const handleButtonClick = () => {
+    // On mobile, open dialog. On desktop, scroll to contact form
+    if (typeof window !== "undefined" && window.innerWidth < 640) {
+      setIsDialogOpen(true)
+    } else {
+      scrollToContactForm()
+    }
+  }
+
   return (
     <footer className="relative min-h-[500px] sm:h-[600px] w-full overflow-hidden">
       {/* Background Image */}
@@ -63,7 +79,7 @@ export function Footer({
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-light leading-tight text-white">
             {headingText}
           </h2>
-          {buttonLink ? (
+          {buttonLink && buttonLink !== "/" ? (
             <a href={buttonLink}>
               <Button
                 variant="outline"
@@ -75,6 +91,7 @@ export function Footer({
             </a>
           ) : (
             <Button
+              onClick={handleButtonClick}
               variant="outline"
               className="rounded-full border-white bg-transparent px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 
                          text-xs sm:text-sm text-white hover:bg-white hover:text-black transition-colors w-full sm:w-auto"
@@ -83,6 +100,9 @@ export function Footer({
             </Button>
           )}
         </div>
+
+        {/* Contact Form Dialog for Mobile */}
+        <ContactFormDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
 
         {/* Footer Info */}
         <div className="grid md:grid-cols-3 grid-cols-1 gap-4 sm:gap-6 md:gap-8 text-xs sm:text-sm text-white text-center md:text-left mt-6 sm:mt-0">

@@ -1,4 +1,7 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
+import { scrollToContactForm } from "@/lib/scroll-to-contact"
 
 export function HeroSection() {
   return (
@@ -55,6 +58,7 @@ export function HeroSection() {
           </p>
 
           <Button
+            onClick={scrollToContactForm}
             variant="outline"
             className="rounded-full border-white bg-transparent 
                        w-full sm:w-auto px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 
