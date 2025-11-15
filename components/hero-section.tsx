@@ -26,6 +26,9 @@ export function HeroSection() {
                        font-bold leading-none text-white text-center
                        uppercase tracking-tight relative overflow-hidden opacity-0 animate-fade-in"
             style={{
+              top: "0%",
+              left: "40%",
+              transform: "translate(-50%, -50%)",
               letterSpacing: "-0.02em",
               animationDelay: "0.2s",
               animationFillMode: "forwards",
