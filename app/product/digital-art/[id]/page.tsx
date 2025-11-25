@@ -60,17 +60,6 @@ export default function DigitalArtGalleryPage() {
             </Button>
           </Link>
 
-          <div className="mb-6 sm:mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
-              {art.name}
-            </h1>
-            {art.description && (
-              <p className="text-muted-foreground text-sm sm:text-base md:text-lg">
-                {art.description}
-              </p>
-            )}
-          </div>
-
           {art.images && art.images.length > 0 ? (
             <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {art.images.map((imageSrc, index) => (
