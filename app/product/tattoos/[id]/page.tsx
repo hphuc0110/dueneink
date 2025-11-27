@@ -138,28 +138,28 @@ export default function TattooGalleryPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 w-full bg-[#f5f5f0]">
+      <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 w-full bg-[#f5f5f0]">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
           <Link href="/product">
             <Button 
               variant="ghost" 
-              className="mb-6 sm:mb-8 text-sm sm:text-base"
+              className="mb-4 sm:mb-6 md:mb-8 text-xs sm:text-sm md:text-base py-2 sm:py-2.5 touch-manipulation"
             >
               ← Quay lại Product
             </Button>
           </Link>
           
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground uppercase tracking-tight animate-fade-in">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-foreground uppercase tracking-tight animate-fade-in leading-tight">
             {tattoo.name}
           </h1>
         </div>
       </section>
 
       {/* Gallery Section */}
-      <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f5f0]">
+      <section className="py-6 sm:py-8 md:py-12 lg:py-16 xl:py-20 bg-[#f5f5f0]">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
           {tattoo.images && tattoo.images.length > 0 ? (
-            <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-3 sm:gap-4 md:gap-6 lg:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {/* Nếu có previewImages, hiển thị các nhóm preview */}
               {tattoo.previewImages && (() => {
                 // Kiểm tra xem previewImages là mảng đơn hay mảng các mảng
@@ -172,7 +172,7 @@ export default function TattooGalleryPage() {
                   <div
                     key={groupIndex}
                     onClick={() => openPreviewImages(previewGroup)}
-                    className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group"
+                    className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-lg sm:rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group touch-manipulation"
                   >
                     {/* Hiển thị ảnh đầu tiên trong nhóm preview */}
                     <Image
@@ -212,7 +212,7 @@ export default function TattooGalleryPage() {
                     <div
                       key={index}
                       onClick={() => openImage(imageIndex >= 0 ? imageIndex : 0)}
-                      className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+                      className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] rounded-lg sm:rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer touch-manipulation"
                     >
                       <Image
                         src={imageSrc}
@@ -235,11 +235,11 @@ export default function TattooGalleryPage() {
       {/* Image Viewer Modal */}
       <Dialog open={selectedImageIndex !== null} onOpenChange={(open) => !open && closeImage()}>
         <DialogContent 
-          className="max-w-[95vw] sm:max-w-[90vw] md:max-w-[85vw] lg:max-w-[80vw] max-h-[95vh] p-0 bg-[#f5f5f0] border-none"
+          className="max-w-[100vw] sm:max-w-[95vw] md:max-w-[90vw] lg:max-w-[85vw] xl:max-w-[80vw] max-h-[100vh] sm:max-h-[95vh] p-0 bg-[#f5f5f0] border-none m-0 sm:m-4 rounded-none sm:rounded-lg"
           showCloseButton={false}
         >
           {selectedImageIndex !== null && tattoo && (
-            <div className="relative w-full h-[90vh] flex items-center justify-center">
+            <div className="relative w-full h-[100vh] sm:h-[90vh] flex items-center justify-center">
               {(() => {
                 // Xác định danh sách ảnh đang xem
                 const currentImages = viewingPreviewImages && currentPreviewGroup.length > 0
@@ -252,23 +252,23 @@ export default function TattooGalleryPage() {
                 return (
                   <>
                     {/* Close Button */}
-                    <DialogClose className="absolute top-2 right-2 sm:top-4 sm:right-4 z-50 text-white hover:text-white/80 bg-black/50 hover:bg-black/70 rounded-full p-2 transition-colors">
-                      <XIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <DialogClose className="absolute top-3 right-3 sm:top-4 sm:right-4 z-50 text-white hover:text-white/80 bg-black/60 hover:bg-black/80 rounded-full p-2.5 sm:p-2 transition-colors touch-manipulation min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center">
+                      <XIcon className="w-6 h-6 sm:w-5 sm:h-5" />
                     </DialogClose>
 
                     {/* Previous Button */}
                     {currentImages.length > 1 && (
                       <button
                         onClick={goToPrevious}
-                        className="absolute left-2 sm:left-4 z-50 text-white hover:text-white/80 bg-black/50 hover:bg-black/70 rounded-full p-2 sm:p-3 transition-colors"
+                        className="absolute left-3 sm:left-4 z-50 text-white hover:text-white/80 bg-black/60 hover:bg-black/80 rounded-full p-2.5 sm:p-2 md:p-3 transition-colors touch-manipulation min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
                         aria-label="Previous image"
                       >
-                        <ChevronLeftIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <ChevronLeftIcon className="w-6 h-6 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                       </button>
                     )}
 
                     {/* Image */}
-                    <div className="relative w-full h-full flex items-center justify-center p-4 sm:p-8">
+                    <div className="relative w-full h-full flex items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8">
                       <Image
                         src={currentImage}
                         alt={`${tattoo.name} - Image ${selectedImageIndex + 1}`}
@@ -283,16 +283,16 @@ export default function TattooGalleryPage() {
                     {currentImages.length > 1 && (
                       <button
                         onClick={goToNext}
-                        className="absolute right-2 sm:right-4 z-50 text-white hover:text-white/80 bg-black/50 hover:bg-black/70 rounded-full p-2 sm:p-3 transition-colors"
+                        className="absolute right-3 sm:right-4 z-50 text-white hover:text-white/80 bg-black/60 hover:bg-black/80 rounded-full p-2.5 sm:p-2 md:p-3 transition-colors touch-manipulation min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
                         aria-label="Next image"
                       >
-                        <ChevronRightIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <ChevronRightIcon className="w-6 h-6 sm:w-5 sm:h-5 md:w-6 md:h-6" />
                       </button>
                     )}
 
                     {/* Image Counter */}
                     {currentImages.length > 1 && (
-                      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-50 text-white bg-black/50 px-4 py-2 rounded-full text-xs sm:text-sm">
+                      <div className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 z-50 text-white bg-black/60 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm touch-manipulation">
                         {selectedImageIndex + 1} / {currentImages.length}
                       </div>
                     )}

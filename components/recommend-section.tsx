@@ -21,24 +21,24 @@ export function RecommendSection() {
   ]
 
   return (
-    <section className="py-12 sm:py-16 md:py-20 bg-[#f5f3f0]">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f3f0]">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">Recommend for You</h2>
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg font-medium px-4 sm:px-0">{"We've selected these works based on artists you'll love."}</p>
+        <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 sm:mb-3 md:mb-4">Recommend for You</h2>
+          <p className="text-muted-foreground text-xs sm:text-sm md:text-base lg:text-lg font-medium px-2 sm:px-4 md:px-0">{"We've selected these works based on artists you'll love."}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-5xl mx-auto">
           {recommendations.map((item) => (
-            <div key={item.id} className="space-y-3 sm:space-y-4">
-              <div className="relative aspect-[3/4] rounded-xl sm:rounded-2xl overflow-hidden">
+            <div key={item.id} className="space-y-2.5 sm:space-y-3 md:space-y-4">
+              <div className="relative aspect-[3/4] rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden">
                 <Image src={item.image || "/img/2.webp"} alt={item.alt} fill className="object-cover" />
               </div>
               <div className="flex justify-center">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="rounded-full w-full sm:w-auto px-6 sm:px-8 border-2 border-foreground hover:bg-foreground hover:text-background bg-transparent text-sm sm:text-base"
+                  className="rounded-full w-full sm:w-auto px-5 sm:px-6 md:px-8 py-2 sm:py-2.5 border-2 border-foreground hover:bg-foreground hover:text-background bg-transparent text-xs sm:text-sm md:text-base touch-manipulation"
                 >
                   Power pants
                 </Button>

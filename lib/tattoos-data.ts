@@ -122,6 +122,34 @@ import v13 from "@/public/img/VIETNAMESETATTOO/V1_3.webp"
 import v14 from "@/public/img/VIETNAMESETATTOO/V2_1.webp"
 import v15 from "@/public/img/VIETNAMESETATTOO/V2_2.webp"
 import v16 from "@/public/img/VIETNAMESETATTOO/V2_3.webp"
+import da1 from "@/public/img/ARTWORK/11.webp"
+import da2 from "@/public/img/ARTWORK/12.webp"
+import da3 from "@/public/img/ARTWORK/13.webp"
+import da4 from "@/public/img/ARTWORK/14.webp"
+import da5 from "@/public/img/ARTWORK/15.webp"
+import da6 from "@/public/img/ARTWORK/16.webp"
+import da7 from "@/public/img/ARTWORK/17.webp"
+import da8 from "@/public/img/ARTWORK/18.webp"
+import da9 from "@/public/img/ARTWORK/19.webp"
+import da10 from "@/public/img/ARTWORK/20.webp"
+import da11 from "@/public/img/ARTWORK/21.webp"
+import da12 from "@/public/img/ARTWORK/22.webp"
+import da13 from "@/public/img/ARTWORK/23.webp"
+import da14 from "@/public/img/ARTWORK/24.webp"
+import la1 from "@/public/img/LINEART/21.webp"
+import la2 from "@/public/img/LINEART/22.webp"
+import la3 from "@/public/img/LINEART/23.webp"
+import la4 from "@/public/img/LINEART/24.webp"
+import la5 from "@/public/img/LINEART/25.webp"
+import la6 from "@/public/img/LINEART/26.webp"
+import la7 from "@/public/img/LINEART/27.webp"
+import la8 from "@/public/img/LINEART/28.webp"
+import tet1 from "@/public/img/TATTOODESIGNRANDOM/1.webp"
+import tet2 from "@/public/img/TATTOODESIGNRANDOM/2.webp"
+import tet3 from "@/public/img/TATTOODESIGNRANDOM/3.webp"
+import tet4 from "@/public/img/TATTOODESIGNRANDOM/4.webp"
+import tet5 from "@/public/img/TATTOODESIGNRANDOM/5.webp"
+import tet6 from "@/public/img/TATTOODESIGNRANDOM/6.webp"
 
 
 export interface TattooItem {
@@ -134,7 +162,8 @@ export interface TattooItem {
 export interface DigitalArtItem {
   id: string
   name: string
-  images: string[]
+  images: string[] // Tất cả ảnh (sẽ hiển thị trong lightbox khi click)
+  previewImages?: string[] | string[][] // Ảnh preview để hiển thị trong gallery - có thể là mảng đơn hoặc mảng các mảng (nhiều nhóm)
 }
 
 // Danh sách tattoos - bạn sẽ thêm vào sau
@@ -209,8 +238,18 @@ export const tattoosList: TattooItem[] = [
 export const digitalArtList: DigitalArtItem[] = [
   {
     id: "digital-1",
-    name: "DIGITAL ART",
-    images: ["/img/3_3.webp", "/img/3_4.webp"],
+    name: "ARTWORK",
+    images: [da1.src, da2.src, da3.src, da4.src, da5.src, da6.src, da7.src, da8.src, da9.src, da10.src, da11.src, da12.src, da13.src, da14.src],
+  },
+  {
+    id: "digital-2",
+    name: "LINE ART",
+    images: [la1.src, la2.src, la3.src, la4.src, la5.src, la6.src, la7.src, la8.src],
+  },
+  {
+    id: "digital-3",
+    name: "TATTOO DESIGN RANDOM",
+    images: [ tet1.src, tet2.src, tet3.src, tet4.src, tet5.src, tet6.src ],
   },
 ]
 
