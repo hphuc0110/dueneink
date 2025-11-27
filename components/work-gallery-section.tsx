@@ -37,9 +37,14 @@ export function WorkGallerySection() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="rounded-full w-full sm:w-auto px-6 sm:px-8 border-2 border-foreground hover:bg-foreground hover:text-background bg-transparent text-xs sm:text-base"
+                    className="group relative rounded-full w-full sm:w-auto px-6 sm:px-8 border-2 border-foreground hover:bg-foreground hover:text-background bg-transparent text-xs sm:text-base overflow-hidden"
                   >
-                    TATTOOS
+                    <span className="relative z-10 inline-block transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2">
+                      TATTOOS
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-10 text-xs sm:text-sm">
+                      Xem thêm
+                    </span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent 
@@ -77,9 +82,14 @@ export function WorkGallerySection() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="rounded-full w-full sm:w-auto px-6 sm:px-8 border-2 border-foreground hover:bg-foreground hover:text-background bg-transparent text-sm sm:text-base"
+                    className="group relative rounded-full w-full sm:w-auto px-6 sm:px-8 border-2 border-foreground hover:bg-foreground hover:text-background bg-transparent text-sm sm:text-base overflow-hidden"
                   >
-                    DIGITAL ART
+                    <span className="relative z-10 inline-block transition-all duration-300 group-hover:opacity-0 group-hover:-translate-x-2">
+                      DIGITAL ART
+                    </span>
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-10 text-xs sm:text-sm">
+                      Xem thêm
+                    </span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent 
