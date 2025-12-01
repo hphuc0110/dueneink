@@ -1,7 +1,7 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -9,9 +9,28 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { tattoosList, digitalArtList } from "@/lib/tattoos-data"
+import { tattoosList, digitalArtList, type TattooItem, type DigitalArtItem } from "@/lib/tattoos-data"
 
-export function WorkGallerySection() {
+interface WorkGallerySectionProps {
+  onItemSelect: (item: TattooItem | DigitalArtItem | null) => void
+}
+
+export function WorkGallerySection({ onItemSelect }: WorkGallerySectionProps) {
+  const [tattoosMenuOpen, setTattoosMenuOpen] = useState(false)
+  const [digitalArtMenuOpen, setDigitalArtMenuOpen] = useState(false)
+
+  const handleItemClick = (item: TattooItem | DigitalArtItem) => {
+    onItemSelect(item)
+    setTattoosMenuOpen(false)
+    setDigitalArtMenuOpen(false)
+    // Scroll đến RecommendSection sau một chút delay để đảm bảo state đã update
+    setTimeout(() => {
+      const recommendSection = document.getElementById('recommend-section')
+      if (recommendSection) {
+        recommendSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    }, 100)
+  }
   return (
     <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#f5f3f0]">
       <div className="container mx-auto px-4 sm:px-6">
@@ -32,7 +51,7 @@ export function WorkGallerySection() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 md:gap-4">
-              <DropdownMenu>
+              <DropdownMenu open={tattoosMenuOpen} onOpenChange={setTattoosMenuOpen}>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
@@ -43,7 +62,7 @@ export function WorkGallerySection() {
                       TATTOOS
                     </span>
                     <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-10 text-xs sm:text-sm">
-                      Xem thêm
+                      SEE MORE
                     </span>
                   </Button>
                 </DropdownMenuTrigger>
@@ -56,16 +75,18 @@ export function WorkGallerySection() {
                       {tattoosList.map((tattoo, index) => (
                         <DropdownMenuItem 
                           key={tattoo.id} 
-                          asChild 
                           className="m-0 p-0 focus:bg-transparent dropdown-item-animate"
                           style={{ animationDelay: `${index * 50}ms` }}
+                          onSelect={(e) => {
+                            e.preventDefault()
+                            handleItemClick(tattoo)
+                          }}
                         >
-                          <Link 
-                            href={`/product/tattoos/${tattoo.id}`}
-                            className="w-full px-3 sm:px-3 py-3 sm:py-2.5 text-xs sm:text-sm rounded-sm hover:bg-accent focus:bg-accent transition-all duration-200 flex items-center hover:translate-x-1 touch-manipulation min-h-[44px] sm:min-h-0"
+                          <button
+                            className="w-full px-3 sm:px-3 py-3 sm:py-2.5 text-xs sm:text-sm rounded-sm hover:bg-accent focus:bg-accent transition-all duration-200 flex items-center hover:translate-x-1 touch-manipulation min-h-[44px] sm:min-h-0 text-left"
                           >
                             {tattoo.name}
-                          </Link>
+                          </button>
                         </DropdownMenuItem>
                       ))}
                     </div>
@@ -77,7 +98,7 @@ export function WorkGallerySection() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <DropdownMenu>
+              <DropdownMenu open={digitalArtMenuOpen} onOpenChange={setDigitalArtMenuOpen}>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
@@ -88,7 +109,7 @@ export function WorkGallerySection() {
                       DIGITAL ART
                     </span>
                     <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 z-10 text-xs sm:text-sm">
-                      Xem thêm
+                      SEE MORE
                     </span>
                   </Button>
                 </DropdownMenuTrigger>
@@ -101,16 +122,18 @@ export function WorkGallerySection() {
                       {digitalArtList.map((art, index) => (
                         <DropdownMenuItem 
                           key={art.id} 
-                          asChild 
                           className="m-0 p-0 focus:bg-transparent dropdown-item-animate"
                           style={{ animationDelay: `${index * 50}ms` }}
+                          onSelect={(e) => {
+                            e.preventDefault()
+                            handleItemClick(art)
+                          }}
                         >
-                          <Link 
-                            href={`/product/digital-art/${art.id}`}
-                            className="w-full px-3 sm:px-3 py-3 sm:py-2.5 text-xs sm:text-sm rounded-sm hover:bg-accent focus:bg-accent transition-all duration-200 flex items-center hover:translate-x-1 touch-manipulation min-h-[44px] sm:min-h-0"
+                          <button
+                            className="w-full px-3 sm:px-3 py-3 sm:py-2.5 text-xs sm:text-sm rounded-sm hover:bg-accent focus:bg-accent transition-all duration-200 flex items-center hover:translate-x-1 touch-manipulation min-h-[44px] sm:min-h-0 text-left"
                           >
                             {art.name}
-                          </Link>
+                          </button>
                         </DropdownMenuItem>
                       ))}
                     </div>
