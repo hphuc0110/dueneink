@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { scrollToContactForm } from "@/lib/scroll-to-contact"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
@@ -43,33 +44,55 @@ export function HeroSection() {
 
         {/* Bottom Content */}
         <div
-          className="flex flex-col md:flex-row items-center md:items-end 
-                     justify-between gap-4 sm:gap-6 w-full pb-4 sm:pb-0"
-        >
-          <p
-            className="text-center md:text-left max-w-sm sm:max-w-md md:max-w-md 
-                       text-sm sm:text-md leading-relaxed text-white 
-                       animate-slide-up"
-            style={{ animationDelay: "0.4s" }}
-          >
-            The generation that uses tattoos to heal
-            <br />
-            emotional wounds in this era.
-          </p>
+  className="flex flex-col md:flex-row 
+             items-center md:items-end 
+             justify-between gap-6 w-full"
+>
+  {/* LEFT: ICON + TEXT */}
+  <div className="flex flex-col items-center md:items-start gap-3">
+    {/* ICON */}
+    <div
+      className="animate-slide-up"
+      style={{ animationDelay: "0.3s" }}
+    >
+      <Image
+        src="/1.png"
+        alt="Brand icon"
+        width={38}
+        height={38}
+        className="opacity-90"
+      />
+    </div>
 
-          <Button
-            onClick={scrollToContactForm}
-            variant="outline"
-            className="rounded-full border-white bg-transparent 
-                       w-full sm:w-auto px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 
-                       text-xs sm:text-sm md:text-base
-                       text-white hover:bg-white hover:text-black 
-                       transition-all duration-300 hover:scale-105 animate-slide-up"
-            style={{ animationDelay: "0.6s" }}
-          >
-            BOOKING NOW
-          </Button>
-        </div>
+    {/* TEXT */}
+    <p
+      className="text-center md:text-left max-w-sm sm:max-w-md 
+                 text-sm sm:text-md leading-relaxed text-white
+                 animate-slide-up"
+      style={{ animationDelay: "0.4s" }}
+    >
+      The generation that uses tattoos to heal
+      <br />
+      emotional wounds in this era.
+    </p>
+  </div>
+
+  {/* RIGHT: BUTTON */}
+  <Button
+    onClick={scrollToContactForm}
+    variant="outline"
+    className="rounded-full border-white bg-transparent 
+               w-full md:w-auto 
+               px-5 py-3 sm:px-6 sm:py-4 md:px-8 md:py-6 
+               text-xs sm:text-sm md:text-base
+               text-white hover:bg-white hover:text-black 
+               transition-all duration-300 hover:scale-105 animate-slide-up"
+    style={{ animationDelay: "0.6s" }}
+  >
+    BOOKING NOW
+  </Button>
+</div>
+
       </div>
     </section>
   )

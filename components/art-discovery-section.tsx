@@ -52,12 +52,17 @@ export function ArtDiscoverySection() {
           {/* --- Các Slide --- */}
           <Slide
             bg="from-gray-900 to-gray-800"
-            title1="The ARTSY"
-            title2="VANGUARD"
-            year="2026"
-            heading="The Artsy Vanguard 2026"
-            desc="Meet 10 artists moving culture forward."
-            button="Explore Now"
+            heading="FAQ with Duene"
+            desc="Frequently Asked Questions Before and After Getting a Tattoo"
+            button="See more"
+            images={[
+              "/img/ARTWORK/11.webp",
+              "/img/ARTWORK/12.webp",
+              "/img/ARTWORK/13.webp",
+              "/img/ARTWORK/14.webp",
+              "/img/ARTWORK/15.webp",
+              "/img/ARTWORK/16.webp",
+            ]}
           />
           <Slide
             bg="from-blue-900 to-purple-800"
@@ -67,6 +72,14 @@ export function ArtDiscoverySection() {
             heading="Discover and Buy Art That Moves You"
              desc="Turn art into a daily habit. Follow artists, personalized recommendations."
             button="Discover Now"
+            images={[
+              "/img/COLORTATTOO/C1.webp",
+              "/img/COLORTATTOO/C2.webp",
+              "/img/COLORTATTOO/C3.webp",
+              "/img/COLORTATTOO/C4.webp",
+              "/img/COLORTATTOO/C5.webp",
+              "/img/COLORTATTOO/C6.webp",
+            ]}
           />
           <Slide
             bg="from-green-900 to-lime-800"
@@ -76,6 +89,14 @@ export function ArtDiscoverySection() {
             heading="Discover and Buy Art That Moves You"
             desc="Turn art into a daily habit. Follow artists, personalized recommendations."
             button="Discover Now"
+            images={[
+              "/img/REALISTICTATTOO/R1.webp",
+              "/img/REALISTICTATTOO/R2.webp",
+              "/img/REALISTICTATTOO/R3.webp",
+              "/img/REALISTICTATTOO/R4.webp",
+              "/img/REALISTICTATTOO/R5.webp",
+              "/img/REALISTICTATTOO/R6.webp",
+            ]}
           />
           <Slide
             bg="from-red-900 to-orange-800"
@@ -85,6 +106,14 @@ export function ArtDiscoverySection() {
             heading="Discover and Buy Art That Moves You"
             desc="Turn art into a daily habit. Follow artists,personalized recommendations."
             button="Discover Now"
+            images={[
+              "/img/BLACKWORKTATTOO/B1.webp",
+              "/img/BLACKWORKTATTOO/B2.webp",
+              "/img/BLACKWORKTATTOO/B3.webp",
+              "/img/BLACKWORKTATTOO/B4.webp",
+              "/img/BLACKWORKTATTOO/B5.webp",
+              "/img/BLACKWORKTATTOO/B6.webp",
+            ]}
           />
         </div>
 
@@ -143,6 +172,7 @@ function Slide({
   heading,
   desc,
   button,
+  images,
 }: {
   bg: string
   title1: string
@@ -151,6 +181,7 @@ function Slide({
   heading: string
   desc: string
   button: string
+  images: string[]
 }) {
   return (
     <div className="min-w-full flex-shrink-0 snap-start px-2 sm:px-4 md:px-0">
@@ -162,10 +193,10 @@ function Slide({
           className={`relative h-[240px] sm:h-[280px] md:h-[340px] lg:h-[420px] bg-gradient-to-br ${bg}`}
         >
           <div className="grid grid-cols-2 grid-rows-3 h-full">
-            {[...Array(6)].map((_, i) => (
+            {images.map((image, i) => (
               <div key={i} className="relative overflow-hidden">
                 <img
-                  src={`/placeholder.svg?height=400&width=400&text=Art+${i + 1}`}
+                  src={image}
                   alt={`Art ${i + 1}`}
                   className="w-full h-full object-cover"
                 />
@@ -182,9 +213,6 @@ function Slide({
               <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-wide">
                 {title2}
               </h3>
-              <div className="border-2 border-white inline-block px-2 sm:px-3 py-0.5 mt-0.5 sm:mt-1">
-                <span className="text-[10px] sm:text-xs md:text-sm tracking-widest">ART.SY</span>
-              </div>
               <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mt-1 sm:mt-2">
                 {year}
               </h3>

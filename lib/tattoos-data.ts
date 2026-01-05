@@ -136,6 +136,23 @@ import da11 from "@/public/img/ARTWORK/21.webp"
 import da12 from "@/public/img/ARTWORK/22.webp"
 import da13 from "@/public/img/ARTWORK/23.webp"
 import da14 from "@/public/img/ARTWORK/24.webp"
+import da15 from "@/public/img/ARTWORK/25.webp"
+import da16 from "@/public/img/ARTWORK/26.webp"
+import da17 from "@/public/img/ARTWORK/27.webp"
+import da18 from "@/public/img/ARTWORK/28.webp"
+import da19 from "@/public/img/ARTWORK/29.webp"
+import da20 from "@/public/img/ARTWORK/30.webp"
+import da21 from "@/public/img/ARTWORK/31.webp"
+import da22 from "@/public/img/ARTWORK/32.webp"
+import da23 from "@/public/img/ARTWORK/33.webp"
+import da24 from "@/public/img/ARTWORK/34.webp"
+import da25 from "@/public/img/ARTWORK/35.webp"
+import da26 from "@/public/img/ARTWORK/36.webp"
+import da27 from "@/public/img/ARTWORK/37.webp"
+import da28 from "@/public/img/ARTWORK/38.webp"
+import da29 from "@/public/img/ARTWORK/39.webp"
+import da30 from "@/public/img/ARTWORK/40.webp"
+import da31 from "@/public/img/ARTWORK/41.webp"
 import la1 from "@/public/img/LINEART/21.webp"
 import la2 from "@/public/img/LINEART/22.webp"
 import la3 from "@/public/img/LINEART/23.webp"
@@ -239,7 +256,7 @@ export const digitalArtList: DigitalArtItem[] = [
   {
     id: "digital-1",
     name: "ARTWORK",
-    images: [da1.src, da2.src, da3.src, da4.src, da5.src, da6.src, da7.src, da8.src, da9.src, da10.src, da11.src, da12.src, da13.src, da14.src],
+    images: [da1.src, da2.src, da3.src, da4.src, da5.src, da6.src, da7.src, da8.src, da9.src, da10.src, da11.src, da12.src, da13.src, da14.src, da15.src, da16.src, da17.src, da18.src, da19.src, da20.src, da21.src, da22.src, da23.src, da24.src, da25.src, da26.src, da27.src, da28.src, da29.src, da30.src, da31.src],
   },
   {
     id: "digital-2",

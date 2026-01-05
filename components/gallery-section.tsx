@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function GallerySection() {
@@ -28,19 +29,23 @@ export function GallerySection() {
               className="space-y-4 sm:space-y-5 flex flex-col items-center animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow duration-500 w-full">
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-xl transition-transform duration-700 ease-out bg-white/30 hover:scale-[1.05]"
-                />
-              </div>
-              <Button
-                variant="outline"
-                className="rounded-full border border-black/20 w-full sm:w-auto px-6 sm:px-8 py-2 bg-white text-xs sm:text-sm font-medium hover:bg-black hover:text-white transition-all duration-300"
-              >
-                Power pants
-              </Button>
+              <Link href="/product" className="w-full">
+                <div className="overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow duration-500 w-full cursor-pointer">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-xl transition-transform duration-700 ease-out bg-white/30 hover:scale-[1.05]"
+                  />
+                </div>
+              </Link>
+              <Link href="/product">
+                <Button
+                  variant="outline"
+                  className="rounded-full border border-black/20 w-full sm:w-auto px-6 sm:px-8 py-2 bg-white text-xs sm:text-sm font-medium hover:bg-black hover:text-white transition-all duration-300"
+                >
+                  Power pants
+                </Button>
+              </Link>
             </div>
           ))}
         </div>

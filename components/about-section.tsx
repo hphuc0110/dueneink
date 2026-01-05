@@ -9,13 +9,13 @@ export function AboutSection() {
         </h2>
 
         {/* Video Placeholder */}
-        <div className="mx-auto mb-8 sm:mb-10 md:mb-12 max-w-2xl animate-slide-up px-2 sm:px-0">
+        {/* <div className="mx-auto mb-8 sm:mb-10 md:mb-12 max-w-2xl animate-slide-up px-2 sm:px-0">
           <div className="relative aspect-video overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-orange-300 via-pink-300 to-orange-400 transition-transform duration-500 hover:scale-[1.02]">
             <div className="absolute inset-0 flex items-center justify-center">
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-white px-4 text-center">cái này là video</p>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Description + Button */}
         <div
