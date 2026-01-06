@@ -35,9 +35,9 @@ export function WorkGallerySection({ onItemSelect }: WorkGallerySectionProps) {
     <section className="flex flex-col lg:flex-row h-full w-full bg-[#f5f3f0] relative z-0">
       {/* Left Content */}
       <div className="flex-1 pl-0.5 py-4 flex items-center">
-        <div className="space-y-6 sm:space-y-8 md:space-y-10 w-full max-w-2xl">
+        <div className="space-y-6 sm:space-y-8 md:space-y-10 w-full max-w-2xl mx-auto lg:mx-0 lg:ml-20">
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-4 sm:mb-6 md:mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold mb-2 sm:mb-4 md:mb-6">
                 WORK
                 <br />
                 <span className="font-bold">GALLERY</span>
