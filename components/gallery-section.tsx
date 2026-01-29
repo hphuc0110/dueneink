@@ -2,48 +2,42 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { artistsList } from "@/lib/artists-data"
 
 export function GallerySection() {
-  const tattooImages = [
-    {
-      src: "/img/6.webp",
-      alt: "Floral tattoo design",
-    },
-    {
-      src: "/img/7.webp",
-      alt: "Vine tattoo design",
-    },
-    {
-      src: "/img/8.webp",
-      alt: "Branch tattoo design",
-    },
-  ]
-
   return (
-    <section className="bg-[#f5f5f0] py-12 sm:py-16 md:py-20">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid gap-6 sm:gap-8 md:gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {tattooImages.map((image, index) => (
+    <section className="bg-[#f5f5f0] py-8 sm:py-16 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        <div className="mb-6 sm:mb-10 md:mb-12 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
+            BIO ARTIST
+          </h2>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center items-center gap-8 sm:gap-10 md:gap-16">
+          {artistsList.map((artist, index) => (
             <div
-              key={index}
-              className="space-y-4 sm:space-y-5 flex flex-col items-center animate-fade-up"
+              key={artist.id}
+              className="flex flex-col items-center gap-4 sm:gap-6 w-full max-w-[280px] sm:max-w-none sm:w-auto animate-fade-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <Link href="/product" className="w-full">
-                <div className="overflow-hidden rounded-xl shadow-sm hover:shadow-md transition-shadow duration-500 w-full cursor-pointer">
+              <Link href={`/artists/${artist.slug}`} className="w-full flex justify-center min-w-0">
+                <div className="w-full max-w-[280px] sm:w-[320px] md:w-[360px] lg:w-[400px] overflow-hidden rounded-2xl sm:rounded-[32px] shadow-md hover:shadow-xl active:scale-[0.98] transition-all duration-300 cursor-pointer">
                   <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-xl transition-transform duration-700 ease-out bg-white/30 hover:scale-[1.05]"
+                    src={artist.image}
+                    alt={artist.name}
+                    className="w-full aspect-3/4 sm:aspect-auto sm:h-[420px] md:h-[460px] lg:h-[520px] object-cover transition-transform duration-700 ease-out hover:scale-[1.05]"
                   />
                 </div>
               </Link>
-              <Link href="/product">
+              <p className="text-base sm:text-lg md:text-xl font-medium text-gray-900 text-center px-2">
+                {artist.name}
+              </p>
+              <Link href={`/artists/${artist.slug}`} className="w-full sm:w-auto flex justify-center">
                 <Button
                   variant="outline"
-                  className="rounded-full border border-black/20 w-full sm:w-auto px-6 sm:px-8 py-2 bg-white text-xs sm:text-sm font-medium hover:bg-black hover:text-white transition-all duration-300"
+                  className="rounded-full border border-black/40 px-8 sm:px-12 py-3 min-h-[44px] sm:min-h-0 bg-white text-sm sm:text-base font-medium hover:bg-black hover:text-white active:bg-black active:text-white transition-all duration-300 touch-manipulation"
                 >
-                  Power pants
+                  View Gallery
                 </Button>
               </Link>
             </div>
