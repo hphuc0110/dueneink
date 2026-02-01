@@ -67,7 +67,7 @@ export const artistsList: Artist[] = [
 
 "Who am I? This club, this foundation, will be who I am, what I am. I have to build this so artists and people like me finally have a home, somewhere safe—a place where they belong, a place where I belong."
 
-"Welcome to the era."`,
+                        "Welcome to the era."`,
     galleryImages: [
       "/img/ARTIST/stush/1.webp",
       "/img/ARTIST/stush/2.webp",

@@ -52,6 +52,7 @@ Several factors can influence how much pain you feel during a tattoo session:
     q: "2. How Long Does It Take for a Tattoo to Heal?",
     image: "/img/FAQ/2.jpg",
     mediaAfterBlock: 4,
+    imageWrapperClass: "max-w-md center aspect-3/4",
     a: `**Stage 1: Initial Reaction (Days 1–4)**
 During this time, the tattoo is usually covered with a protective wrap. After about one day, redness and swelling typically subside. While wrapped, the tattoo may release plasma and excess ink, which is completely normal and does not affect the tattoo or the ink quality.
 

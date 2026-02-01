@@ -1,7 +1,13 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { ChevronLeft, ChevronRight, Facebook, Instagram } from "lucide-react"
 import { useRef, useState, useEffect } from "react"
 import Link from "next/link"
 
@@ -71,9 +77,10 @@ export function ArtDiscoverySection() {
             title1="Discover"
             title2="Emerging"
             year="Artists"
-            heading="Discover and Buy Art That Moves You"
-             desc="Turn art into a daily habit. Follow artists, personalized recommendations."
-            button="Discover Now"
+            heading="Duene's products"
+             desc="These are some of Duene's signature designs. We offer a wide range of tattoo styles, including realism, blackwork, color, cover-up, crayon, family, portrait, and even stupid tattoos."
+            button="See products"
+            href="/product"
             images={[
               "/img/COLORTATTOO/C1.webp",
               "/img/COLORTATTOO/C2.webp",
@@ -88,9 +95,10 @@ export function ArtDiscoverySection() {
             title1="Discover"
             title2="Emerging"
             year="Artists"
-            heading="Discover and Buy Art That Moves You"
-            desc="Turn art into a daily habit. Follow artists, personalized recommendations."
-            button="Discover Now"
+            heading="Magazines's Duene"
+            desc="These articles provide updates about the shop, us, and the stories behind the tattoos."
+            button="See magazines"
+            href="/magazines"
             images={[
               "/img/REALISTICTATTOO/R1.webp",
               "/img/REALISTICTATTOO/R2.webp",
@@ -101,20 +109,25 @@ export function ArtDiscoverySection() {
             ]}
           />
           <Slide
-            bg="from-red-900 to-orange-800"
+            bg="from-green-900 to-lime-800"
             title1="Discover"
             title2="Emerging"
             year="Artists"
-            heading="Discover and Buy Art That Moves You"
-            desc="Turn art into a daily habit. Follow artists,personalized recommendations."
-            button="Discover Now"
+            heading="Socials's Duene"
+            desc="These are some of Duene's social media accounts. We are active on Instagram, Facebook, and TikTok."
+            button="See socials"
+            socialLinks={[
+              { name: "Facebook", url: "https://www.facebook.com/Duene.inktattoo" },
+              { name: "Instagram", url: "https://www.instagram.com/duene.inkstudio?igsh=eWlyMTJvNDMydGJ1" },
+              { name: "TikTok", url: "https://www.tiktok.com/@duene.studio?_r=1&_t=ZS-91B6tuiP1Dc" },
+            ]}
             images={[
-              "/img/BLACKWORKTATTOO/B1.webp",
-              "/img/BLACKWORKTATTOO/B2.webp",
-              "/img/BLACKWORKTATTOO/B3.webp",
-              "/img/BLACKWORKTATTOO/B4.webp",
-              "/img/BLACKWORKTATTOO/B5.webp",
-              "/img/BLACKWORKTATTOO/B6.webp",
+              "/img/blackworktattoo/B1_1.webp",
+              "/img/blackworktattoo/B1_2.webp",
+              "/img/blackworktattoo/B1_3.webp",
+              "/img/blackworktattoo/B1_4.webp",
+              "/img/blackworktattoo/B1_5.webp",
+              "/img/blackworktattoo/B1_6.webp",
             ]}
           />
         </div>
@@ -165,6 +178,21 @@ export function ArtDiscoverySection() {
   )
 }
 
+function SocialIcon({ name }: { name: string }) {
+  switch (name) {
+    case "Facebook":
+      return <Facebook className="size-4" />
+    case "Instagram":
+      return <Instagram className="size-4" />
+    default:
+      return (
+        <svg className="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1.05-.08 6.33 6.33 0 00-6.33 6.33 6.33 6.33 0 0010.88 4.41 6.34 6.34 0 00.63-2.56v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
+        </svg>
+      )
+  }
+}
+
 /* --- COMPONENT SLIDE --- */
 function Slide({
   bg,
@@ -175,6 +203,7 @@ function Slide({
   desc,
   button,
   href,
+  socialLinks,
   images,
 }: {
   bg: string
@@ -185,6 +214,7 @@ function Slide({
   desc: string
   button: string
   href?: string
+  socialLinks?: { name: string; url: string }[]
   images: string[]
 }) {
   return (
@@ -241,13 +271,41 @@ function Slide({
             <p className="text-xs sm:text-sm md:text-base lg:text-lg text-foreground/60 leading-relaxed wrap-break-word">
               {desc}
             </p>
-            <Button
-              asChild={Boolean(href)}
-              variant="outline"
-              className="rounded-full border-foreground/30 w-full sm:w-auto px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 text-xs sm:text-sm md:text-base bg-transparent hover:bg-foreground/5 active:scale-95 transition-all"
-            >
-              {href ? <Link href={href}>{button}</Link> : button}
-            </Button>
+            {socialLinks ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="rounded-full border-foreground/30 w-full sm:w-auto px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 text-xs sm:text-sm md:text-base bg-transparent hover:bg-foreground/5 active:scale-95 transition-all"
+                  >
+                    {button}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="min-w-[180px]">
+                  {socialLinks.map((social) => (
+                    <DropdownMenuItem key={social.name} asChild>
+                      <a
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 cursor-pointer"
+                      >
+                        <SocialIcon name={social.name} />
+                        <span>{social.name}</span>
+                      </a>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button
+                asChild={Boolean(href)}
+                variant="outline"
+                className="rounded-full border-foreground/30 w-full sm:w-auto px-4 sm:px-6 md:px-8 lg:px-10 py-2.5 sm:py-3 md:py-4 text-xs sm:text-sm md:text-base bg-transparent hover:bg-foreground/5 active:scale-95 transition-all"
+              >
+                {href ? <Link href={href}>{button}</Link> : button}
+              </Button>
+            )}
           </div>
         </div>
       </div>
