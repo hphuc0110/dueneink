@@ -6,9 +6,9 @@ import { artistsList } from "@/lib/artists-data"
 
 export function GallerySection() {
   return (
-    <section className="bg-[#f5f5f0] py-8 sm:py-16 md:py-20">
+    <section className="bg-[#f5f5f0] py-2 sm:py-2 md:py-2 pb-12 sm:pb-16 md:pb-20">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
-        <div className="mb-6 sm:mb-10 md:mb-12 text-center">
+        <div className="mb-4 sm:mb-8 md:mb-10 text-center">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide">
             BIO ARTIST
           </h2>
