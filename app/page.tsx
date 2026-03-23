@@ -11,7 +11,7 @@ export default function Home() {
     <main className="min-h-screen pt-12 sm:pt-12">
       <Header />
       <HeroSection />
-      <AboutSection />
+      {/* <AboutSection /> */}
       <ArtDiscoverySection />
       <GallerySection />
       <ContactFormSection />
