@@ -52,8 +52,8 @@ export function RecommendSection({
     { id: 8, image: "/img/ARTWORK/15.webp", alt: "Artwork 8" },
     { id: 9, image: "/img/ARTWORK/16.webp", alt: "Artwork 9" },
     { id: 10, image: "/img/ARTWORK/24.webp", alt: "Artwork 10" },
-    { id: 11, image: "/img/ARTWORK/38.webp", alt: "Artwork 11" },
-    { id: 12, image: "/img/ARTWORK/23.webp", alt: "Artwork 12" },
+    { id: 11, image: "/img/ARTWORK/23.webp", alt: "Artwork 11" },
+    { id: 12, image: "/img/ARTWORK/17.webp", alt: "Artwork 12" },
   ]
 
   // Tạo recommendations từ selectedItem hoặc items hoặc default
