@@ -56,7 +56,7 @@ export function HeroSection() {
       style={{ animationDelay: "0.3s" }}
     >
       <Image
-        src="/1.png"
+        src="/img/logo.png"
         alt="Brand icon"
         width={38}
         height={38}
