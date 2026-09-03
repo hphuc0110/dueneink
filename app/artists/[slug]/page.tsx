@@ -27,14 +27,14 @@ export default async function ArtistPage({
       <Header />
 
       {/* Big centered header (e.g. BOSS) */}
-      <section className="py-12 sm:py-16 md:py-20">
+      {/* <section className="py-12 sm:py-16 md:py-20">
         <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-black">
           {title}
         </h1>
-      </section>
+      </section> */}
 
       {/* Image only, centered */}
-      <section className="pb-16 md:pb-24">
+      {/* <section className="pb-16 md:pb-24">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex justify-center">
           <div className="relative w-full max-w-[400px] aspect-3/4 max-h-[520px] md:max-h-[600px] rounded-lg overflow-hidden">
             <Image
@@ -47,7 +47,7 @@ export default async function ArtistPage({
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* View Gallery */}
       {galleryImages.length > 0 && (
