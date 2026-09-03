@@ -33,47 +33,18 @@ export default async function ArtistPage({
         </h1>
       </section>
 
-      {/* Two columns: left = info, right = image */}
+      {/* Image only, centered */}
       <section className="pb-16 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-            {/* Left: text info */}
-            <div className="space-y-6 sm:space-y-8 text-left">
-              <div className="space-y-3">
-                <p className="text-sm sm:text-base">
-                  <span className="font-bold">Name:</span> {artist.profileName ?? artist.name}
-                </p>
-                {artist.age != null && (
-                  <p className="text-sm sm:text-base">
-                    <span className="font-bold">Age:</span> {artist.age}
-                  </p>
-                )}
-                {artist.from && (
-                  <p className="text-sm sm:text-base">
-                    <span className="font-bold">From:</span> {artist.from}
-                  </p>
-                )}
-              </div>
-              {artist.about && (
-                <div className="space-y-3">
-                  <p className="font-bold text-sm sm:text-base">{artist.aboutLabel ?? "About him:"}</p>
-                  <div className="text-sm sm:text-base leading-relaxed text-black whitespace-pre-wrap">
-                    {artist.about}
-                  </div>
-                </div>
-              )}
-            </div>
-            {/* Right: large image (rectangular - about her/him) */}
-            <div className="relative w-full aspect-3/4 max-h-[520px] md:max-h-[600px] rounded-lg overflow-hidden">
-              <Image
-                src={artist.image}
-                alt={artist.name}
-                fill
-                className="object-cover object-top"
-                sizes="(min-width: 768px) 50vw, 100vw"
-                priority
-              />
-            </div>
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl flex justify-center">
+          <div className="relative w-full max-w-[400px] aspect-3/4 max-h-[520px] md:max-h-[600px] rounded-lg overflow-hidden">
+            <Image
+              src={artist.image}
+              alt={artist.name}
+              fill
+              className="object-cover object-top"
+              sizes="(min-width: 768px) 400px, 100vw"
+              priority
+            />
           </div>
         </div>
       </section>

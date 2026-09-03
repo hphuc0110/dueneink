@@ -69,14 +69,7 @@ export function ArtDiscoverySection() {
             desc="Frequently Asked Questions Before and After Getting a Tattoo"
             button="See more"
             href="/faq"
-            images={[
-              "/img/ARTWORK/11.webp",
-              "/img/ARTWORK/12.webp",
-              "/img/ARTWORK/13.webp",
-              "/img/ARTWORK/14.webp",
-              "/img/ARTWORK/15.webp",
-              "/img/ARTWORK/16.webp",
-            ]}
+            video="/video/0827.mp4"
           />
           <Slide
             bg="from-blue-900 to-purple-800"
@@ -213,6 +206,7 @@ function Slide({
   href,
   socialLinks,
   images,
+  video,
 }: {
   bg: string
   title1?: string
@@ -224,9 +218,11 @@ function Slide({
   href?: string
   socialLinks?: { name: string; url: string }[]
   images?: string[]
+  video?: string
 }) {
   const hasImages = images && images.length > 0
-  const isSocialOnly = socialLinks && !hasImages
+  const hasMedia = hasImages || Boolean(video)
+  const isSocialOnly = socialLinks && !hasMedia
 
   return (
     <div className="w-full min-w-full shrink-0 snap-start px-0 sm:px-4 md:px-0 overflow-hidden">
@@ -237,22 +233,35 @@ function Slide({
             : "flex flex-col lg:grid lg:grid-cols-2 gap-0 items-stretch min-w-0"
         }
       >
-        {/* Left Image Collage - ẩn khi chỉ có socials */}
-        {hasImages && (
+        {/* Left media - ẩn khi chỉ có socials */}
+        {hasMedia && (
           <div
             className={`relative h-[240px] sm:h-[280px] md:h-[340px] lg:h-[420px] bg-gradient-to-br ${bg} min-w-0 overflow-hidden`}
           >
-            <div className="grid grid-cols-2 grid-rows-3 h-full w-full min-w-0">
-              {images!.map((image, i) => (
-                <div key={i} className="relative overflow-hidden min-w-0">
-                  <img
-                    src={image}
-                    alt={`Art ${i + 1}`}
-                    className="w-full h-full object-cover min-w-0"
-                  />
-                </div>
-              ))}
-            </div>
+            {video ? (
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
+                aria-label={heading}
+              >
+                <source src={video} type="video/mp4" />
+              </video>
+            ) : (
+              <div className="grid grid-cols-2 grid-rows-3 h-full w-full min-w-0">
+                {images!.map((image, i) => (
+                  <div key={i} className="relative overflow-hidden min-w-0">
+                    <img
+                      src={image}
+                      alt={`Art ${i + 1}`}
+                      className="w-full h-full object-cover min-w-0"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
 
             {(title1 || title2 || year) && (
               <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10 px-2 sm:px-3 md:px-4">
