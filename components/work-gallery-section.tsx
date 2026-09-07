@@ -43,7 +43,7 @@ export function WorkGallerySection({ onItemSelect }: WorkGallerySectionProps) {
               </h2>
               <p className="text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-muted-foreground max-w-md">
                 {
-                  '"More than tattoos — we craft visual identities. Each stroke carries the discipline of fine art, the imagination of design, and the heartbeat of emotion."'
+                  '"Rather than requiring clients to conform to an artist\'s signature style, Stush sought to build a studio capable of adapting to each individual. Here, skilled tattoo artisans collaborate with graphic designers, illustrators, and other creative professionals, blending masterful craftsmanship with multidimensional design thinking"'
                 }
               </p>
             </div>

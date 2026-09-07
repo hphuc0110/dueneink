@@ -63,17 +63,15 @@ export const artistsList: Artist[] = [
     profileName: "Stush",
     age: "???",
     from: "Ha Noi, Viet Nam",
-    about: `Stush is a tattoo artist, but what he pursues has never been simply about putting a design onto someone’s skin.
+    about: `Stush is a tattoo artist, yet his work has never been limited to merely etching designs onto skin. For him, the tattooing process begins with understanding the person - their styles, identities, experiences, and the image they wish to project to the world.
 
-Stush is shaped by a fairly simple belief: people do not have to remain the version of themselves that others have grown accustomed to seeing. To him, tattoos are one of the clearest ways for people to choose how they want to present themselves to the world.
+Over time, he realized that a single artist can only offer one perspective, whereas every client possesses a unique visual language and story of their own.
 
-That is why, for Stush, a tattoo always begins with the person before it begins with the image. The way they dress, the way they speak, what they love, what they have lived through, and what they want to preserve - all of these can become material for a design that truly belongs to them.
+Duene was born from this very realization.
 
-After years in the craft, Stush has come to understand that a great tattoo is not defined by technique or style alone. It is also about whether that tattoo can live naturally with the body, the personality, and the life of the person who carries it.
+Rather than requiring clients to conform to an artist's signature style, Stush sought to build a studio capable of adapting to each individual. Here, skilled tattoo artisans collaborate with graphic designers, illustrators, and other creative professionals, blending masterful craftsmanship with multidimensional design thinking.
 
-Perhaps that is also why Stush does not see himself simply as someone who draws on skin. His work is about observing, listening, and translating things that are sometimes difficult to put into words into an image precise enough for someone to carry with them for years to come.
-
-Ultimately, Stush does not want to become a figure for others to follow. He simply wants to create tattoos and perspectives that feel genuine enough to help people understand themselves a little better - and love the version of themselves they have chosen a little more.`,
+Consequently, Duene is not defined by any single artist or fixed aesthetic. It is a collaborative ecosystem designed to gain a deep, precise understanding of the client, transforming that insight into a deeply personal tattoo - one that holds genuine meaning and shares a natural connection with the individual’s true self.`,
     galleryImages: [
       "/img/ARTIST/stush/1.webp",
       "/img/ARTIST/stush/2.webp",

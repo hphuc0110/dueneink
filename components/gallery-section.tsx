@@ -74,7 +74,7 @@ export function GallerySection() {
               </div>
             )}
 
-            <Link href={`/artists/${artist.slug}`} className="inline-flex mt-6 sm:mt-8">
+            <Link href="/product#stush-artwork" className="inline-flex mt-6 sm:mt-8">
               <Button
                 variant="outline"
                 className="rounded-full border border-black/40 px-8 sm:px-12 py-3 min-h-[44px] sm:min-h-0 bg-white text-sm sm:text-base font-medium hover:bg-black hover:text-white active:bg-black active:text-white transition-all duration-300 touch-manipulation"
